@@ -1,0 +1,18 @@
+{
+  "name": "FeedMeNow",
+  "description": "Coding assesment",
+  "main": "FeedMeNow",
+  "authors": [
+    "Grant"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "Feed",
+    "me",
+    "now"
+  ],
+  "homepage": "none",
+  "dependencies": {
+    "bootstrap": "v4.5.3"
+  }
+}
