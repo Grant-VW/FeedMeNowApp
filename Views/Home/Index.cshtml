@@ -2,16 +2,15 @@
     ViewData["Title"] = "";
 }
 
+<br>
+<br>
 
-<br>
-<br>
-<div class="align-content-center">
+@using (Html.BeginForm("RestuarantList", "Home", FormMethod.Post))
+{
     <div class="input-group">
-        <form>
-            <input type="text" class="form-control" id="foodAndLocation">
-            <button class="btn btn-info" type="button">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </form>
+        <input type="text" class="form-control" id="foodAndLocation">
+        <button class="btn btn-info" type="submit" id="searchResturants">
+            <span class="glyphicon glyphicon-search"></span>
+        </button>
     </div>
-</div>
+}
