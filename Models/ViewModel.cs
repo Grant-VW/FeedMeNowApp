@@ -7,8 +7,15 @@ namespace FeedMeNow.Models
 {
     public class ViewModel
     {
-        public List<Restuarant> Restuarants { get; set; }
+        public List<Restaurant> Restaurants { get; set; }
         public List<Category> Categories { get; set; }
         public List<MenuItem> MenuItems { get; set; }
+
+        public ViewModel(List<Restaurant> restaurants, List<Category> categories, List<MenuItem> menuItems)
+        {
+            Restaurants = restaurants;
+            Categories = categories;
+            MenuItems = menuItems;
+        }
     }
 }

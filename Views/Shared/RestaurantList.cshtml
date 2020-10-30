@@ -1,0 +1,24 @@
+﻿@using FeedMeNow.Models;
+@model System.Collections.Generic.List<Restaurant>
+@{
+    var data = ViewBag.Message;
+
+}
+
+<br>
+<br>
+<div>
+    <ul>
+        @foreach (var restaurant in data)
+        {
+            <li>
+                <img src="@restaurant.LogoPath" class="img-rounded" alt="@restaurant.LogoPath">
+                <h2>@restaurant.Name</h2>
+                @restaurant.City
+                @restaurant.Suburb
+            </li>
+        }
+    </ul>
+</div>
+
+<h3>@data</h3>  

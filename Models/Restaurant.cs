@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FeedMeNow.Models
 {
-    public class Restuarant
+    public class Restaurant
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -13,6 +13,6 @@ namespace FeedMeNow.Models
         public string Suburb { get; set; }
         public string LogoPath { get; set; }
         public int Rank { get; set; }
-        public Category[] Categories { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }

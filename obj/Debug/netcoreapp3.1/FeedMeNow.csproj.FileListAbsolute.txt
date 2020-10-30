@@ -26,7 +26,6 @@ C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.Razor
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\RestuarantList.cshtml.g.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
@@ -40,3 +39,5 @@ C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\staticwebassets
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.dll
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.pdb
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.genruntimeconfig.cache
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.csprojAssemblyReference.cache
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\RestaurantList.cshtml.g.cs
