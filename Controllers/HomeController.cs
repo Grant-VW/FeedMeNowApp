@@ -32,18 +32,24 @@ namespace FeedMeNow.Controllers
             return View();
         }
 
-        public IActionResult RestuarantList(string foodAndLocation)
+        public IActionResult RestuarantList()
         {
+            //hard code foodType and location variables until input on view works
+            //var foodtype = "Tacos";
+            var location = "Cape Town";
+            
             //'build' string for JSON file location
             string contentRootPath = _env.ContentRootPath;
             string filePath = contentRootPath + @"\AppMockData\SampleData.json";
             string jsonString = System.IO.File.ReadAllText(filePath);
-            var restuarants = JsonConvert.DeserializeObject<List<Restuarant>>(jsonString);
+            var restuarantsT = JsonConvert.DeserializeObject<List<Restuarant>>(jsonString);
 
-            //string foodAndLocation = form["foodAndLocation"].ToString();
+            List<Restuarant> restuarants = restuarantsT.FindAll(restuarant => (restuarant.City == location));
+
             //ViewData["Message"] = "You searched for " + foodAndLocation;
 
-            ViewData["Message"] = restuarants;
+            //ViewBag.TopMessage = foodAndLocation;
+            ViewBag.Message = restuarants;
             return View(); 
         }
         public IActionResult Privacy()

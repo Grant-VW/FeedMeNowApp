@@ -8,6 +8,7 @@ namespace FeedMeNow.Models
     public class Category
     {
         public string Name { get; set; }
-        public List<MenuItem> MenuItems { get; set; }
+        public MenuItem[] MenuItems { get; set; }
     }
 }
+

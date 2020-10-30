@@ -1,3 +1,9 @@
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.AssemblyInfoInputs.cache
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.AssemblyInfo.cs
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.csproj.CoreCompileInputs.cache
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.RazorAssemblyInfo.cache
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.RazorAssemblyInfo.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\AppMockData\SampleData.json
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\appsettings.json
@@ -14,12 +20,6 @@ C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\FeedMeNow.pdb
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\FeedMeNow.Views.dll
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\FeedMeNow.Views.pdb
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.AssemblyInfoInputs.cache
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.AssemblyInfo.cs
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.csproj.CoreCompileInputs.cache
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.RazorAssemblyInfo.cache
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.RazorAssemblyInfo.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.TagHelpers.input.cache
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.TagHelpers.output.cache
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.RazorCoreGenerate.cache
