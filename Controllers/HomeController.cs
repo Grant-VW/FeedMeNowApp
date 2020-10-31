@@ -38,8 +38,8 @@ namespace FeedMeNow.Controllers
             try
             {
                 //hard code foodType and location variables until input on view works
-                var foodtype = "Tacos";
-                var location = "Cape Town";
+                var menuItemName = "Taco";
+                var city = "Cape Town";
 
                 //'build' string for JSON file location
                 string contentRootPath = _env.ContentRootPath;
@@ -47,12 +47,12 @@ namespace FeedMeNow.Controllers
                 string jsonString = System.IO.File.ReadAllText(filePath);
                 var restaurantsT = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString);
 
-                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.City == location);
-                /*
-                var restaurants = restaurantsT.SelectMany(r => r.Categories.Where(c => c.MenuItems.Any
-                    (mi => mi.Name.Contains(foodtype)/* && r.City == location))).ToList();
-                
-                */
+                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.Categories
+                                                           .Any(category => category.MenuItems
+                                                           .Any(menuItem => menuItem.Name.Contains(menuItemName) && 
+                                                                restaurant.City == city)))
+                                                           .ToList();
+                                
                 ViewBag.Message = restaurants;
                 return View();
             }
