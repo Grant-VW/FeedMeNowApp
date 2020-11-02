@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FeedMeNow.Models
 {
-    public class Restuarant
+    public class Restaurant
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -11,3 +11,4 @@ namespace FeedMeNow.Models
         public List<MenuItem> MenuItems { get; set; }
     }
 }
+

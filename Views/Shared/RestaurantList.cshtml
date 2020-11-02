@@ -1,0 +1,25 @@
+﻿@using FeedMeNow.Models;
+@{
+    var menuItemNameInCity = ViewBag.menuItemNameInCity;
+}
+@model System.Collections.Generic.List<Restaurant>
+@{
+    var restaurants = ViewBag.restaurants;
+}
+
+<br>
+You searched for <b>@menuItemNameInCity</b>
+<br>
+<br>
+<div>
+    <ul>
+        @foreach (var restaurant in restaurants)
+        {
+            <li>
+                <img src="@restaurant.LogoPath" class="img-rounded" alt="@restaurant.LogoPath">
+                <h3>@restaurant.Name</h3>
+                @restaurant.Suburb
+            </li>
+        }
+    </ul>
+</div>

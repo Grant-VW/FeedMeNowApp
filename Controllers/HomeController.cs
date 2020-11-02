@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 using System.IO;
+using System.Collections.Immutable;
 
 namespace FeedMeNow.Controllers
 {
@@ -32,19 +33,37 @@ namespace FeedMeNow.Controllers
             return View();
         }
 
-        public IActionResult RestuarantList(string foodAndLocation)
+        [HttpPost]
+        public IActionResult RestaurantList(string menuItemNameInCity)
         {
-            //'build' string for JSON file location
-            string contentRootPath = _env.ContentRootPath;
-            string filePath = contentRootPath + @"\AppMockData\SampleData.json";
-            string jsonString = System.IO.File.ReadAllText(filePath);
-            var restuarants = JsonConvert.DeserializeObject<List<Restuarant>>(jsonString);
+            try
+            {
+                //hard code foodType and location variables until input on view works
+                var menuItemName = "Taco";
+                var city = "Cape Town";
 
-            //string foodAndLocation = form["foodAndLocation"].ToString();
-            //ViewData["Message"] = "You searched for " + foodAndLocation;
+                //'build' string for JSON file location
+                string contentRootPath = _env.ContentRootPath;
+                string filePath = contentRootPath + @"\AppMockData\SampleData.json";
+                string jsonString = System.IO.File.ReadAllText(filePath);
+                var restaurantsT = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString);
 
-            ViewData["Message"] = restuarants;
-            return View(); 
+                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.Categories
+                                                           .Any(category => category.MenuItems
+                                                           .Any(menuItem => menuItem.Name.Contains(menuItemName) && 
+                                                                restaurant.City == city)))
+                                                           .ToList();
+
+                ViewBag.restaurants = restaurants;
+                ViewBag.menuItemNameInCity = menuItemNameInCity;
+
+                return View();
+            }
+            catch (Exception e)
+            {
+                ViewBag.Message = e.Message;
+                return View();
+            }
         }
         public IActionResult Privacy()
         {
