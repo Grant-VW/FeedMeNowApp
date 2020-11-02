@@ -33,7 +33,8 @@ namespace FeedMeNow.Controllers
             return View();
         }
 
-        public IActionResult RestaurantList()
+        [HttpPost]
+        public IActionResult RestaurantList(string menuItemNameInCity)
         {
             try
             {
@@ -52,8 +53,10 @@ namespace FeedMeNow.Controllers
                                                            .Any(menuItem => menuItem.Name.Contains(menuItemName) && 
                                                                 restaurant.City == city)))
                                                            .ToList();
-                                
-                ViewBag.Message = restaurants;
+
+                ViewBag.restaurants = restaurants;
+                ViewBag.menuItemNameInCity = menuItemNameInCity;
+
                 return View();
             }
             catch (Exception e)
