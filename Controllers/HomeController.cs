@@ -34,6 +34,7 @@ namespace FeedMeNow.Controllers
         }
 
         [HttpPost]
+        [Route("RestaurantList")]
         public IActionResult RestaurantList(string menuItemNameInCity)
         {
             try

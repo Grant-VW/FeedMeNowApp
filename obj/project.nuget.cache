@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Yk1kS2eb3lhHoBiTeZHXllWsNwzp9lV/JFI04aJL9V7DBm985jHUtCC/Ah0LX19MkO3FhdwdyxFFSo+A44lf9A==",
+  "dgSpecHash": "w8LFc//GgmBEFRN6OpvseO/KoKGxlZf7ev/wlT2b7KjrrP5SrI2auUtWF04GwztX13CIaYznqN8vuTd7M9+P/g==",
   "success": true,
   "projectFilePath": "C:\\Users\\GCPC\\Desktop\\Projects\\FeedMeNow\\FeedMeNow.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\GCPC\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\GCPC\\.nuget\\packages\\bootstrap\\4.5.3\\bootstrap.4.5.3.nupkg.sha512",
+    "C:\\Users\\GCPC\\.nuget\\packages\\jquery\\3.0.0\\jquery.3.0.0.nupkg.sha512",
+    "C:\\Users\\GCPC\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\GCPC\\.nuget\\packages\\popper.js\\1.16.1\\popper.js.1.16.1.nupkg.sha512"
   ],
   "logs": []
 }

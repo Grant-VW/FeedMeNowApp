@@ -14,7 +14,6 @@ C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\FeedMeNow.pdb
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\FeedMeNow.Views.dll
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\FeedMeNow.Views.pdb
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
-C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.csprojAssemblyReference.cache
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.AssemblyInfoInputs.cache
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.AssemblyInfo.cs
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.csproj.CoreCompileInputs.cache
