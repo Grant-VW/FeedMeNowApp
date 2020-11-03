@@ -12,14 +12,33 @@ You searched for <b>@menuItemNameInCity</b>
 <br>
 <br>
 <div>
-    <ul>
-        @foreach (var restaurant in restaurants)
+@foreach (var restaurant in Model)
+{
+    <div>
+        <img src="@restaurant.LogoPath" class="img-rounded" alt="@restaurant.LogoPath">
+        <h3>@restaurant.Name</h3>
+        @restaurant.Suburb
+        <br>
+        @foreach (var category in restaurant.Categories)
         {
-            <li>
-                <img src="@restaurant.LogoPath" class="img-rounded" alt="@restaurant.LogoPath">
-                <h3>@restaurant.Name</h3>
-                @restaurant.Suburb
-            </li>
+            <div>@category.Name</div>
+
+            @foreach (var menuItem in category.MenuItems)
+            {
+                <div>
+                    <label class="container">
+                        @menuItem.Name
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        @String.Format("{0:C}", menuItem.Price)
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                    </label>
+                </div>
+            }
         }
-    </ul>
-</div>
+    </div>
+    <br>
+    <br>
+    }
+</div>>
+

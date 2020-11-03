@@ -57,7 +57,7 @@ namespace FeedMeNow.Controllers
                 ViewBag.restaurants = restaurants;
                 ViewBag.menuItemNameInCity = menuItemNameInCity;
 
-                return View();
+                return View(restaurants);
             }
             catch (Exception e)
             {
