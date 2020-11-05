@@ -45,25 +45,19 @@ namespace FeedMeNow.Controllers
                 var menuItemName = findMenuItemNameInCity.Split(" in ", 2, StringSplitOptions.None).ToList()[0];
                 var city = findMenuItemNameInCity.Split(" in ", 2, StringSplitOptions.None).ToList()[1];
 
-                /*
-                //hard code foodType and location variables until input on view works
-                menuItemName = "Taco";
-                city = "Cape Town";
-                */
-
                 //'build' string for JSON file location
                 string contentRootPath = _env.ContentRootPath;
                 string filePath = contentRootPath + @"\AppMockData\SampleData.json";
                 string jsonString = System.IO.File.ReadAllText(filePath);
                 var restaurantsT = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString);
 
-                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.Categories
-                                                           .Any(category => category.MenuItems
+                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.GetCategories()
+                                                           .Any(category => category.GetMenuItems()
                                                            .Any(menuItem => menuItem.Name.Contains(menuItemName) && 
                                                                 restaurant.City == city)))
                                                            .ToList();
-
-                ViewBag.restaurants = restaurants;
+                
+                ViewBag.restaurants = restaurants.OrderByDescending(restaurant => restaurant.Rank);
                 ViewBag.menuItemNameInCity = findMenuItemNameInCity;
 
                 return View(restaurants);
