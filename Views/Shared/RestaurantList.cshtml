@@ -8,37 +8,35 @@
 }
 
 <br>
-You searched for <b>@menuItemNameInCity</b>
+You searched for&nbsp;&nbsp;&nbsp;&nbsp; <b>@menuItemNameInCity</b>
 <br>
 <br>
 <div>
-@foreach (var restaurant in Model)
-{
-    <div>
-        <img src="@restaurant.LogoPath" class="img-rounded" alt="@restaurant.LogoPath">
-        <h3>@restaurant.Name</h3>
-        @restaurant.Suburb
-        <br>
-        @foreach (var category in restaurant.Categories)
-        {
-            <div>@category.Name</div>
-
-            @foreach (var menuItem in category.MenuItems)
+    @foreach (var restaurant in Model)
+    {
+        <div>
+            <img src="@restaurant.LogoPath" class="img-rounded" alt="@restaurant.LogoPath">
+            <h3>@restaurant.Name</h3>
+            @restaurant.Suburb
+            <br>
+            @foreach (var category in restaurant.Categories)
             {
-                <div>
-                    <label class="container">
-                        @menuItem.Name
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        @String.Format("{0:C}", menuItem.Price)
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                </div>
+                <div>@category.Name</div>
+
+                @foreach (var menuItem in category.MenuItems)
+                {
+                    <div>
+                        <label class="container">
+                            @menuItem.Name ---  @String.Format("{0:C}", menuItem.Price)
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                }
             }
-        }
-    </div>
-    <br>
-    <br>
+        </div>
+        <br>
+        <br>
     }
 </div>>
 

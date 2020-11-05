@@ -40,3 +40,4 @@ C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\staticwebassets
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.dll
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.pdb
 C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.genruntimeconfig.cache
+C:\Users\GCPC\Desktop\Projects\FeedMeNow\obj\Debug\netcoreapp3.1\FeedMeNow.csprojAssemblyReference.cache

@@ -22,10 +22,11 @@ namespace FeedMeNow.Controllers
         {
             _env = env;
         }
+
         /*
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+           _logger = logger;
         }
         */
         public IActionResult Index()
@@ -34,14 +35,21 @@ namespace FeedMeNow.Controllers
         }
 
         [HttpPost]
-        [Route("RestaurantList")]
-        public IActionResult RestaurantList(string menuItemNameInCity)
+        [Route("Home/RestaurantList/")]
+
+        public IActionResult RestaurantList(string findMenuItemNameInCity)
         {
             try
             {
+                //split search string
+                var menuItemName = findMenuItemNameInCity.Split(" in ", 2, StringSplitOptions.None).ToList()[0];
+                var city = findMenuItemNameInCity.Split(" in ", 2, StringSplitOptions.None).ToList()[1];
+
+                /*
                 //hard code foodType and location variables until input on view works
-                var menuItemName = "Taco";
-                var city = "Cape Town";
+                menuItemName = "Taco";
+                city = "Cape Town";
+                */
 
                 //'build' string for JSON file location
                 string contentRootPath = _env.ContentRootPath;
@@ -56,7 +64,7 @@ namespace FeedMeNow.Controllers
                                                            .ToList();
 
                 ViewBag.restaurants = restaurants;
-                ViewBag.menuItemNameInCity = menuItemNameInCity;
+                ViewBag.menuItemNameInCity = findMenuItemNameInCity;
 
                 return View(restaurants);
             }
