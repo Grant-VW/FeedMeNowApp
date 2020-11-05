@@ -14,5 +14,17 @@ namespace FeedMeNow.Models
         public string LogoPath { get; set; }
         public int Rank { get; set; }
         public List<Category> Categories { get; set; }
-    }
+
+        public List<Category> GetCategories()
+        {
+            return Categories;
+        }
+
+        public int GetMenuItemCount()
+        {
+            var _categories = Categories;
+            int menuItemCount = _categories.Sum(x => x.MenuItems.Count);
+            return menuItemCount;
+        }
+    }   
 }

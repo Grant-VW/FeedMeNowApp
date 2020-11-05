@@ -9,6 +9,11 @@ namespace FeedMeNow.Models
     {
         public string Name { get; set; }
         public List<MenuItem> MenuItems { get; set; }
+
+        public List<MenuItem> GetMenuItems()
+        {
+            return MenuItems;
+        }
     }
 }
 

@@ -22,10 +22,11 @@ namespace FeedMeNow.Controllers
         {
             _env = env;
         }
+
         /*
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+           _logger = logger;
         }
         */
         public IActionResult Index()
@@ -34,13 +35,15 @@ namespace FeedMeNow.Controllers
         }
 
         [HttpPost]
-        public IActionResult RestaurantList(string menuItemNameInCity)
+        [Route("Home/RestaurantList/")]
+
+        public IActionResult RestaurantList(string findMenuItemNameInCity)
         {
             try
             {
-                //hard code foodType and location variables until input on view works
-                var menuItemName = "Taco";
-                var city = "Cape Town";
+                //split search string
+                var menuItemName = findMenuItemNameInCity.Split(" in ", 2, StringSplitOptions.None).ToList()[0];
+                var city = findMenuItemNameInCity.Split(" in ", 2, StringSplitOptions.None).ToList()[1];
 
                 //'build' string for JSON file location
                 string contentRootPath = _env.ContentRootPath;
@@ -48,16 +51,27 @@ namespace FeedMeNow.Controllers
                 string jsonString = System.IO.File.ReadAllText(filePath);
                 var restaurantsT = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString);
 
-                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.Categories
-                                                           .Any(category => category.MenuItems
+                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.GetCategories()
+                                                           .Any(category => category.GetMenuItems()
                                                            .Any(menuItem => menuItem.Name.Contains(menuItemName) && 
                                                                 restaurant.City == city)))
                                                            .ToList();
 
-                ViewBag.restaurants = restaurants;
-                ViewBag.menuItemNameInCity = menuItemNameInCity;
+                /*
+                var sortTest = "";
 
-                return View();
+                foreach(var restaurant in restaurants.OrderByDescending(restaurant => restaurant.GetMenuItemCount()))
+                {
+                    sortTest += "[Items: " + restaurant.GetMenuItemCount() + ", Rank: " + restaurant.Rank + "] ";
+                }
+
+                ViewBag.menuItemNameInCity = sortTest;
+                */
+
+                ViewBag.menuItemNameInCity = findMenuItemNameInCity;
+                //sort restaraunts by descending highest number of menuitems, then ascending rank
+                return View(restaurants.OrderByDescending(restaurant => restaurant.GetMenuItemCount())
+                                       .ThenBy(restaurant => restaurant.Rank).ToList());
             }
             catch (Exception e)
             {

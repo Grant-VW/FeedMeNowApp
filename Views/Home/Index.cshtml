@@ -5,12 +5,12 @@
 <br>
 <br>
 
-@using (Html.BeginForm("RestaurantList", "Home", FormMethod.Post))
+@using (Html.BeginForm("RestaurantList", "Home", FormMethod.Post, new { id = "menuItemNameInCity" }))
 {
-    <div class="input-group">
-        <input type="text" class="form-control" id="menuItemNameInCity" value="Doesn't work yet; click search">
-        <button class="btn btn-info" type="submit" id="searchbMenuItemNameInCity"> 
-            <span class="glyphicon glyphicon-search"></span>
-        </button>
-    </div>
+<div class="input-group">
+    <button class="btn btn-info" type="submit">
+        <span class="glyphicon glyphicon-search"></span>
+    </button> 
+    @Html.TextBox("findMenuItemNameInCity", null, new { @class = "form-control" })
+</div>
 }
