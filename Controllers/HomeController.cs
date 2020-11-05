@@ -56,11 +56,22 @@ namespace FeedMeNow.Controllers
                                                            .Any(menuItem => menuItem.Name.Contains(menuItemName) && 
                                                                 restaurant.City == city)))
                                                            .ToList();
-                
-                ViewBag.restaurants = restaurants.OrderByDescending(restaurant => restaurant.Rank);
-                ViewBag.menuItemNameInCity = findMenuItemNameInCity;
 
-                return View(restaurants);
+                /*
+                var sortTest = "";
+
+                foreach(var restaurant in restaurants.OrderByDescending(restaurant => restaurant.GetMenuItemCount()))
+                {
+                    sortTest += "[Items: " + restaurant.GetMenuItemCount() + ", Rank: " + restaurant.Rank + "] ";
+                }
+
+                ViewBag.menuItemNameInCity = sortTest;
+                */
+
+                ViewBag.menuItemNameInCity = findMenuItemNameInCity;
+                //sort restaraunts by descending highest number of menuitems, then ascending rank
+                return View(restaurants.OrderByDescending(restaurant => restaurant.GetMenuItemCount())
+                                       .ThenBy(restaurant => restaurant.Rank).ToList());
             }
             catch (Exception e)
             {

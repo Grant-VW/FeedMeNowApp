@@ -19,5 +19,12 @@ namespace FeedMeNow.Models
         {
             return Categories;
         }
+
+        public int GetMenuItemCount()
+        {
+            var _categories = Categories;
+            int menuItemCount = _categories.Sum(x => x.MenuItems.Count);
+            return menuItemCount;
+        }
     }   
 }
