@@ -2,15 +2,18 @@
     ViewData["Title"] = "";
 }
 
-<br>
-<br>
-
-@using (Html.BeginForm("RestaurantList", "Home", FormMethod.Post, new { id = "menuItemNameInCity" }))
+@using (Html.BeginForm("RestaurantList", "Home", FormMethod.Post, new { id = "findMenuItemNameInCity" }))
 {
-<div class="input-group">
-    <button class="btn btn-info" type="submit">
-        <span class="glyphicon glyphicon-search"></span>
-    </button> 
-    @Html.TextBox("findMenuItemNameInCity", null, new { @class = "form-control" })
-</div>
+    <br>
+    <br>
+    <div>
+        <div class="input-group col-sm-10">
+            <span class="input-group-prepend">
+                <button class="btn btn-outline-secondary" type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+            </span>
+            @Html.TextBox("findMenuItemNameInCity", null, new { @class = "form-control py-2" })
+        </div>
+    </div>
 }
