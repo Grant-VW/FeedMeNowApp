@@ -7,36 +7,46 @@
     var restaurants = ViewBag.restaurants;
 }
 
-<br>
-You searched for&nbsp;&nbsp;&nbsp;&nbsp; <b>@menuItemNameInCity</b>
-<br>
+<div>
+    You searched for&nbsp;&nbsp;&nbsp;&nbsp; <b>@menuItemNameInCity</b>
+</div>
 <br>
 <div>
     @foreach (var restaurant in Model)
     {
-        <div class="card-title bg-light">
-            <img src="@restaurant.LogoPath" class="img-rounded" alt="@restaurant.LogoPath">
-            <h3>@restaurant.Name</h3>
-            @restaurant.Suburb
-            <br>
+        <div class="card bg-light">
+
+            <p><span>
+                <img class="rounded border-info" src="@restaurant.LogoPath">
+                <label class="form-control border-0 bg-transparent">
+                    <strong>@restaurant.Name</strong> - @restaurant.Suburb, (Rated #@restaurant.Rank overall)
+                </label>
+            </span></p>
+
             @foreach (var category in restaurant.Categories)
             {
-                <div class="card-deck">@category.Name</div>
+                <div class="card-deck">
+                    <label class="form-control border-0 bg-transparent">&nbsp;&nbsp;&nbsp;&nbsp;@category.Name</label>
+                </div>
 
                 @foreach (var menuItem in category.MenuItems)
                 {
-                    <div>
-                        <label class="container">
-                            @menuItem.Name ---  @String.Format("{0:C}", menuItem.Price)
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                        </label>
+                    var menuItemCheckBoxId = String.Concat(restaurant.Id, ":", menuItem.Id);
+                    var menuItemCheckBoxLabel = String.Concat(menuItem.Name, " - ", String.Format("{0:C}", menuItem.Price));
+
+                    <div class="form-check">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <span>
+                            <input type="checkbox" class="form-check-input" id=@menuItemCheckBoxId value=false>
+                            <label class="form-check-label" for=@menuItemCheckBoxId>@menuItemCheckBoxLabel</label>
+                        </span>
                     </div>
                 }
             }
         </div>
-        <br>
-        <br>
-    }
-</div>>
+        }
+</div>
 
+<div class="input-group col-sm-10">
+    <button class="btn-info btn-outline-secondary" type="submit" disabled></button>
+</div>
