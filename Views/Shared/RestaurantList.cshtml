@@ -16,12 +16,14 @@
     {
         <div class="card bg-light">
 
-            <p><span>
-                <img class="rounded border-info" src="@restaurant.LogoPath">
-                <label class="form-control border-0 bg-transparent">
-                    <strong>@restaurant.Name</strong> - @restaurant.Suburb, (Rated #@restaurant.Rank overall)
-                </label>
-            </span></p>
+            <p>
+                <span>
+                    <img class="rounded border-info" src="@restaurant.LogoPath">
+                    <label class="form-control border-0 bg-transparent">
+                        <strong>@restaurant.Name</strong> - @restaurant.Suburb, (Rated #@restaurant.Rank overall)
+                    </label>
+                </span>
+            </p>
 
             @foreach (var category in restaurant.Categories)
             {
@@ -31,22 +33,28 @@
 
                 @foreach (var menuItem in category.MenuItems)
                 {
+                    var menuItemCheckBoxValue = String.Concat(restaurant.Id, ":", menuItem.Id);
                     var menuItemCheckBoxId = String.Concat(restaurant.Id, ":", menuItem.Id);
                     var menuItemCheckBoxLabel = String.Concat(menuItem.Name, " - ", String.Format("{0:C}", menuItem.Price));
 
-                    <div class="form-check">
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div class="form-row">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <span>
-                            <input type="checkbox" class="form-check-input" id=@menuItemCheckBoxId value=false>
+                            <input type="checkbox" class="form-check-input" id=@menuItemCheckBoxId
+                                   value=@menuItem.Price onchange="menuItemCheckBoxIdChange(this, @menuItem.Price)">
                             <label class="form-check-label" for=@menuItemCheckBoxId>@menuItemCheckBoxLabel</label>
                         </span>
                     </div>
+                    <br>
                 }
             }
         </div>
-        }
+    }
+    <div>
+        <input id="submitOrderButton" class="btn-default btn-block" value="Select menu item" type="submit" disabled>
+    </div>
 </div>
 
-<div class="input-group col-sm-10">
-    <button class="btn-info btn-outline-secondary" type="submit" disabled></button>
-</div>
+<!--
+<script src="~/dist/RestaurantList.js" type="text/javascript" asp-append-version="true"></script>
+-->
