@@ -33,7 +33,7 @@
 
                 @foreach (var menuItem in category.MenuItems)
                 {
-                    var menuItemCheckBoxValue = menuItem.Price;
+                    var menuItemCheckBoxValue = menuItem.Price.ToString().Replace(',', '.');
                     var menuItemCheckBoxId = String.Concat(restaurant.Id, "_", menuItem.Id);
                     var menuItemCheckBoxLabel = String.Concat(menuItem.Name, " - ", String.Format("{0:C}", menuItem.Price));
 
@@ -45,7 +45,6 @@
                             <label class="form-check-label" for=@menuItemCheckBoxId>@menuItemCheckBoxLabel</label>
                         </span>
                     </div>
-                    <br>
                 }
             }
         </div>
