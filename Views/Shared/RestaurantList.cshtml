@@ -33,15 +33,15 @@
 
                 @foreach (var menuItem in category.MenuItems)
                 {
-                    var menuItemCheckBoxValue = String.Concat(restaurant.Id, ":", menuItem.Id);
-                    var menuItemCheckBoxId = String.Concat(restaurant.Id, ":", menuItem.Id);
+                    var menuItemCheckBoxValue = menuItem.Price;
+                    var menuItemCheckBoxId = String.Concat(restaurant.Id, "_", menuItem.Id);
                     var menuItemCheckBoxLabel = String.Concat(menuItem.Name, " - ", String.Format("{0:C}", menuItem.Price));
 
                     <div class="form-row">
                         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <span>
-                            <input type="checkbox" class="form-check-input" id=@menuItemCheckBoxId
-                                   value=@menuItem.Price onchange="menuItemCheckBoxIdChange(this, @menuItem.Price)">
+                            <input type="checkbox" class="form-check-input" id=@menuItemCheckBoxId name="menuItems"
+                                   value=@menuItemCheckBoxValue onchange="menuItemCheckBoxIdChange(this)">
                             <label class="form-check-label" for=@menuItemCheckBoxId>@menuItemCheckBoxLabel</label>
                         </span>
                     </div>
