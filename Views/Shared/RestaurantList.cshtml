@@ -37,8 +37,7 @@
                     var menuItemCheckBoxId = String.Concat(restaurant.Id, "_", menuItem.Id);
                     var menuItemCheckBoxLabel = String.Concat(menuItem.Name, " - ", String.Format("{0:C}", menuItem.Price));
 
-                    <div class="form-row">
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                    <div class="form-row">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
                         <span>
                             <input type="checkbox" class="form-check-input" id=@menuItemCheckBoxId name="menuItems"
                                    value=@menuItemCheckBoxValue onchange="menuItemCheckBoxIdChange(this)">
