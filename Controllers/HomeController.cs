@@ -49,15 +49,14 @@ namespace FeedMeNow.Controllers
                 string contentRootPath = _env.ContentRootPath;
                 string filePath = contentRootPath + @"\AppMockData\SampleData.json";
                 string jsonString = System.IO.File.ReadAllText(filePath);
-                
-                List<Restaurant> restaurantsJSON = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString).ToList();
 
-                List<Restaurant> restaurants =
-                    restaurantsJSON.Where(r => r.City.Contains(city) && r.MenuItemInRestaurant(menuItemName) && 
-                                               r.Categories
-                                   .All(c => c.FilterMenuItems(menuItemName)
-                                   .All(m => m.Name.Contains(menuItemName))))
-                                   .ToList();
+                List<Restaurant> restaurants = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString).ToList()
+                                                          .Where(r => r.City.Contains(city) &&
+                                                                      r.MenuItemInRestaurant(menuItemName) &&
+                                                                      r.Categories
+                                                           .All(c => c.FilterMenuItems(menuItemName)
+                                                           .All(m => m.Name.Contains(menuItemName))))
+                                                           .ToList();
 
                 ViewBag.menuItemNameInCity = findMenuItemNameInCity;
                 //sort restaraunts by descending highest number of menuitems, then ascending rank
