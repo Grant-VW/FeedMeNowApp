@@ -15,16 +15,14 @@ namespace FeedMeNow.Models
         public int Rank { get; set; }
         public List<Category> Categories { get; set; }
 
-        public List<Category> GetCategories()
+        public int FilteredMenuItemCount(string menuItemName)
         {
-            return Categories;
+            return Categories.Sum(c => c.MenuItems.Count(m => m.Name.Contains(menuItemName)));
         }
-
-        public int GetMenuItemCount()
+        public bool MenuItemInRestaurant (string menuItemName)
         {
-            var _categories = Categories;
-            int menuItemCount = _categories.Sum(x => x.MenuItems.Count);
-            return menuItemCount;
+            bool menuItemInRestaurant = FilteredMenuItemCount(menuItemName) > 0 ? true : false;
+            return menuItemInRestaurant;
         }
-    }   
+    }
 }

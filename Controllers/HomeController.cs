@@ -49,29 +49,19 @@ namespace FeedMeNow.Controllers
                 string contentRootPath = _env.ContentRootPath;
                 string filePath = contentRootPath + @"\AppMockData\SampleData.json";
                 string jsonString = System.IO.File.ReadAllText(filePath);
-                var restaurantsT = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString);
+                
+                List<Restaurant> restaurantsJSON = JsonConvert.DeserializeObject<List<Restaurant>>(jsonString).ToList();
 
-                List<Restaurant> restaurants = restaurantsT.FindAll(restaurant => restaurant.GetCategories()
-                                                           .Any(category => category.GetMenuItems()
-                                                           .Any(menuItem => menuItem.Name.Contains(menuItemName) && 
-                                                                restaurant.City == city)))
-                                                           .ToList();
-
-                /*
-                var sortTest = "";
-
-                foreach(var restaurant in restaurants.OrderByDescending(restaurant => restaurant.GetMenuItemCount()))
-                {
-                    sortTest += "[Items: " + restaurant.GetMenuItemCount() + ", Rank: " + restaurant.Rank + "] ";
-                }
-
-                ViewBag.menuItemNameInCity = sortTest;
-                */
+                List<Restaurant> restaurants =
+                    restaurantsJSON.Where(r => r.City.Contains(city) && r.MenuItemInRestaurant(menuItemName) && 
+                                               r.Categories
+                                   .All(c => c.FilterMenuItems(menuItemName)
+                                   .All(m => m.Name.Contains(menuItemName))))
+                                   .ToList();
 
                 ViewBag.menuItemNameInCity = findMenuItemNameInCity;
                 //sort restaraunts by descending highest number of menuitems, then ascending rank
-                return View(restaurants.OrderByDescending(restaurant => restaurant.GetMenuItemCount())
-                                       .ThenBy(restaurant => restaurant.Rank).ToList());
+                return View(restaurants.OrderByDescending(r => r.FilteredMenuItemCount(menuItemName)).ThenBy(r => r.Rank).ToList());
             }
             catch (Exception e)
             {

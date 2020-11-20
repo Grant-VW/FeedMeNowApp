@@ -10,9 +10,11 @@ namespace FeedMeNow.Models
         public string Name { get; set; }
         public List<MenuItem> MenuItems { get; set; }
 
-        public List<MenuItem> GetMenuItems()
+        public List<MenuItem> FilterMenuItems(string menuItemName)
         {
-            return MenuItems;
+            List<MenuItem> _menuItems = MenuItems.Where(m => m.Name.Contains(menuItemName)).ToList();
+            MenuItems = _menuItems;
+            return _menuItems;
         }
     }
 }
